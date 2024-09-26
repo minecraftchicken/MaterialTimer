@@ -46,7 +46,6 @@
         #timer {
             font-size: 12em;
             font-weight: 300;
-            margin-bottom: 20px;
             z-index: 1;
             color: var(--accent-color);
             transition: font-size 0.5s ease; 
@@ -65,6 +64,7 @@
             background-color: var(--progress-bar-color);
             transition: height 0.1s linear;
             border-radius: 40px 40px 0 0; 
+            z-index: -2;
         }
         
         .controls {
@@ -72,7 +72,13 @@
             justify-content: center;
             align-items: center;
             transition: opacity 0.5s ease; 
-            margin-bottom: 20px; 
+        }
+
+        .elements-container {
+            background: var(--background-color);
+    border-radius: 10em;
+    padding: 2em 8em 0 8em;
+    z-index: 1;
         }
         
         body.fullscreen .controls,
@@ -219,21 +225,24 @@ body.fullscreen .ui-container { /* Target the UI container specifically */
 </head>
 
 <body>
-    <div id="timer">25:00</div>
-    <div id="progress"></div>
+    <div class="elements-container">
 
-    <div class="controls">
-        <button id="start"><span class="material-icons">play_arrow</span></button>
-        <button id="pause"><span class="material-icons">pause</span></button>   
-
-        <button id="reset"><span class="material-icons">replay</span></button>
-        <div class="duration-adjust"> 
-            <button id="decreaseDuration"><span class="material-icons">remove</span></button>
-            <button id="increaseDuration"><span class="material-icons">add</span></button>
+        <div class="controls">
+            <button id="start"><span class="material-icons">play_arrow</span></button>
+            <button id="pause"><span class="material-icons">pause</span></button>   
+    
+            <button id="reset"><span class="material-icons">replay</span></button>
+            <div class="duration-adjust"> 
+                <button id="decreaseDuration"><span class="material-icons">remove</span></button>
+                <button id="increaseDuration"><span class="material-icons">add</span></button>
+            </div>
+            <button id="darkModeToggle"><span class="material-icons">dark_mode</span></button> 
+            <button id="fullscreen"><span class="material-icons">fullscreen</span></button>
         </div>
-        <button id="darkModeToggle"><span class="material-icons">dark_mode</span></button> 
-        <button id="fullscreen"><span class="material-icons">fullscreen</span></button>
+        <div id="timer">25:00</div>
     </div>
+
+    <div id="progress"></div>
 
     <video id="backgroundVideo" loop muted playsinline>
         <source src="blank-0.2-sec.m4v" type="video/mp4">
