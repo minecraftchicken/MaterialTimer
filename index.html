@@ -206,6 +206,15 @@ body.fullscreen .ui-container { /* Target the UI container specifically */
             --icon-background-color: var(--dark-icon-background-color);
             --text-color: var(--dark-text-color);
         }
+        #backgroundVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1px; /* Make it tiny */
+            height: 1px;
+            opacity: 0; /* Hide it */
+            z-index: -1; /* Place it behind everything */
+          }
         </style>
 </head>
 
@@ -225,6 +234,10 @@ body.fullscreen .ui-container { /* Target the UI container specifically */
         <button id="darkModeToggle"><span class="material-icons">dark_mode</span></button> 
         <button id="fullscreen"><span class="material-icons">fullscreen</span></button>
     </div>
+
+    <video id="backgroundVideo" loop muted playsinline>
+        <source src="blank-0.2-sec.m4v" type="video/mp4">
+      </video>
 
     <script>
         let focusTime = 25 * 60; 
