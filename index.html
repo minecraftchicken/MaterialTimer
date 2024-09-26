@@ -383,6 +383,16 @@ darkModeToggle.addEventListener('click', () => {
     // Save the preference to localStorage
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
 });
+        function updateTimerDisplay() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    timerDisplay.textContent = `${minutes.toString().padStart(2,   
+ '0')}:${seconds.toString().padStart(2,   
+ '0')}`;
+
+    // Update the tab title as well
+    document.title = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} - Material Timer`;
+}
     </script>
 </body>
 
